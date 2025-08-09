@@ -1,5 +1,21 @@
 ---
+// This is the "About Me" page for my Astro site.
+const pageTitle = "About Me"
 
+// Here is some information about me, my skills, and my progress learning Astro.
+const identity = {
+  firstName: "Sarah",
+  country: "Canada",
+  occupation: "Technical Writer",
+  hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+// Progress indicators
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,15 +24,37 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/">Blog</a>
-		<h1>About Me</h1>
+		<h1>{pageTitle}</h1>
         <h2>... and my new Astro site!</h2>
         <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
         <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+
+        <p>Here are a few facts about me:</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+            {identity.hobbies.length >= 2 ?
+                <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>:
+                <li>My hobbie is {identity.hobbies[0]}</li>
+            }
+        </ul>
+
+        <p>My skills are:</p>
+
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+
+        {happy && <p>I am happy to be learning Astro!</p>}
+
+        {goal === 3 ? <p>My goal is to finish in {goal} days.</p> : <p>My goal is not {goal} days.</p>}
+
+        {finished && <p>I finished this tutorial!</p>}
     </body>
 </html>
