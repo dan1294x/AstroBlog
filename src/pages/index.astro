@@ -1,10 +1,38 @@
+<!-- File: src/pages/index.astro -->
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Greeting from "../components/Greeting.jsx";
 const pageTitle = "Home Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
+	{/* Keep Greeting as-is per request */}
 	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
-	<p>Welcome to my Astro site! This is the first page I built as I work through the Astro tutorial.</p>
-	<p>Check out the other pages to learn more about me and my journey learning Astro!</p>
+
+	<section aria-labelledby="intro">
+		<h2 id="intro">Welcome</h2>
+		<p>This is my corner of the internet where I document what I’m building and what I’m learning in public.</p>
+		<p>Expect practical notes, small experiments, and honest write-ups—short, useful, and occasionally nerdy.</p>
+	</section>
+
+	<section aria-labelledby="find">
+		<h2 id="find">What you’ll find here</h2>
+		<ul>
+			<li>Build logs and project retros—what worked, what failed, and why.</li>
+			<li>How-to guides distilled from real problems I recently solved.</li>
+			<li>Tiny tools and demos you can copy or remix.</li>
+			<li>Readable explanations of web concepts without fluff.</li>
+		</ul>
+	</section>
+
+	<section aria-labelledby="start">
+		<h2 id="start">Start here</h2>
+		<p>
+			<a href=`${import.meta.env.BASE_URL}blog/`>Browse all posts</a>, explore by <a href=`${import.meta.env.BASE_URL}tags/`>tags</a>, or read <a href=`${import.meta.env.BASE_URL}about/`>a bit more about me</a>.
+		</p>
+	</section>
+
+	<section aria-labelledby="now">
+		<h2 id="now">Now</h2>
+		<p>I’m focused on shipping small projects regularly and sharpening fundamentals—accessibility, performance, and maintainable UI patterns.</p>
+	</section>
 </BaseLayout>
