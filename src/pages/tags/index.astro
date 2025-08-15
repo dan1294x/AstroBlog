@@ -30,7 +30,7 @@ const uniqueTags = [...new Set(allPosts.map((post:any) => post.frontmatter.tags)
         <ul>
         {uniqueTags.map((tag:any) => 
             <div class="tags">
-                <p class="tag"><a href={`/tags/${tag}`}>{tag}</p></a>
+                <p class="tag"><a href={`${import.meta.env.BASE_URL}tags/${tag}`}>{tag}</p></a>
             </div>
         )}
         </ul>
