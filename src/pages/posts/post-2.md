@@ -1,6 +1,7 @@
 ---
+layout: ../../layouts/MdPostLayout.astro
 title: My Second Blog Post
-author: Astro Learner
+author: El Coco
 description: "After learning some Astro, I couldn't stop!"
 image:
     url: "https://docs.astro.build/assets/arc.webp"
