@@ -1,9 +1,5 @@
 import rss, { pagesGlobToRssItems } from '@astrojs/rss';
 
-export default defineConfig({
-  site: "https://example.com"
-});
-
 export async function GET(context) {
   return rss({
     title: 'Astro Learner | Blog',
