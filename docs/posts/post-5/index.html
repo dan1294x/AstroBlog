@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.12.9"><title>Shipping this blog: a small deployment odyssey</title><style>html{background-color:#f1f5f9;font-family:sans-serif}html.dark{background-color:#0d0950;color:#fff}.dark .nav-links a{color:#fff}body{margin:0 auto;width:100vw;padding:0 1rem;background-color:#f1f5f9;max-width:1200px;line-height:1.5}*{box-sizing:border-box}h1{margin:1rem 0;font-size:2.5rem}.nav-links{width:100%;top:5rem;background-color:#ff9776;display:none}.nav-links a{display:block;text-align:center;padding:10px 0;text-decoration:none;font-size:1.2rem;font-weight:700;text-transform:uppercase}.nav-links a:hover,a:focus{background-color:#ff9776}.expanded{display:unset}.hamburger{padding-right:20px;cursor:pointer}.hamburger .line{display:block;width:40px;height:5px;margin-bottom:10px;background-color:#ff9776}@media screen and (min-width: 636px){.nav-links{margin-left:5em;display:block;position:static;width:auto;background:none}.nav-links a{display:inline-block;padding:15px 20px}.hamburger{display:none}}#themeToggle[data-astro-cid-oemx5le4]{border:0;background:none}.sun[data-astro-cid-oemx5le4]{fill:#000}.moon[data-astro-cid-oemx5le4],.dark .sun[data-astro-cid-oemx5le4]{fill:transparent}.dark .moon[data-astro-cid-oemx5le4]{fill:#fff}.header[data-astro-cid-3ef6ksr2]{display:flex;justify-content:center;align-items:center;background-color:#f8f9fa}nav[data-astro-cid-3ef6ksr2]{display:flex;justify-content:right;width:100%;max-width:1200px}a[data-astro-cid-yxtifmrq]{color:inherit;text-decoration:none}a[data-astro-cid-yxtifmrq]:hover{text-decoration:underline}footer[data-astro-cid-sz7xmlte]{text-align:center;padding:1rem;background-color:#f8f9fa;border-top:1px solid #dee2e6;width:100%;font-size:1.2rem;color:#343a40;margin-top:2rem}footer[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{color:#007bff;text-decoration:none}footer[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{text-decoration:underline}li[data-astro-cid-sz7xmlte]{display:inline;margin-right:.5rem;list-style:none}li[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{color:inherit;text-decoration:none}li[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{text-decoration:underline}
+a[data-astro-cid-llkgxla6]{color:#00539f;text-decoration:none}.tags[data-astro-cid-llkgxla6]{display:flex;flex-wrap:wrap}.tag[data-astro-cid-llkgxla6]{margin:.25em;border:dotted 1px #a1a1a1;border-radius:.5em;padding:.5em 1em;font-size:1.15em;background-color:#f8fcfd;cursor:pointer}
+</style></head> <body> <header class="header" data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <div class="hamburger"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </div> <button id="themeToggle" data-astro-cid-oemx5le4> <svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-astro-cid-oemx5le4> <path class="sun" fill-rule="evenodd" d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z" data-astro-cid-oemx5le4></path> <path class="moon" fill-rule="evenodd" d="M16.5 6A10.5 10.5 0 0 1 4.7 16.4 8.5 8.5 0 1 0 16.4 4.7l.1 1.3zm-1.7-2a9 9 0 0 1 .2 2 9 9 0 0 1-11 8.8 9.4 9.4 0 0 1-.8-.3c-.4 0-.8.3-.7.7a10 10 0 0 0 .3.8 10 10 0 0 0 9.2 6 10 10 0 0 0 4-19.2 9.7 9.7 0 0 0-.9-.3c-.3-.1-.7.3-.6.7a9 9 0 0 1 .3.8z" data-astro-cid-oemx5le4></path> </svg> </button>  <script>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem("theme") ?? '';
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme;
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+      return 'light';
+  })();
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+
+  window.localStorage.setItem('theme', theme);
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+
+    const isDark = element.classList.contains("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }
+
+  document.getElementById("themeToggle")?.addEventListener("click", handleToggleClick);
+</script> <div class="nav-links"> <a href="/AstroBlog/">Home</a> <a href="/AstroBlog/about/">About</a> <a href="/AstroBlog/blog/">Blog</a> <a href="/AstroBlog/tags/">Tags</a> </div> </nav> </header> <h1>Shipping this blog: a small deployment odyssey</h1> <div class="tags" data-astro-cid-llkgxla6><a href="/AstroBlog/tags/astro" data-astro-cid-llkgxla6><p class="tag" data-astro-cid-llkgxla6>astro</p></a><a href="/AstroBlog/tags/deployment" data-astro-cid-llkgxla6><p class="tag" data-astro-cid-llkgxla6>deployment</p></a><a href="/AstroBlog/tags/github-pages" data-astro-cid-llkgxla6><p class="tag" data-astro-cid-llkgxla6>github-pages</p></a><a href="/AstroBlog/tags/collections" data-astro-cid-llkgxla6><p class="tag" data-astro-cid-llkgxla6>collections</p></a><a href="/AstroBlog/tags/debugging" data-astro-cid-llkgxla6><p class="tag" data-astro-cid-llkgxla6>debugging</p></a><a href="/AstroBlog/tags/tips" data-astro-cid-llkgxla6><p class="tag" data-astro-cid-llkgxla6>tips</p></a></div><p data-astro-cid-llkgxla6>Published on: 14/8/2025</p><p data-astro-cid-llkgxla6>Written by Daniel Ruiz (elCoco)</p><img src="https://docs.astro.build/assets/rose.webp" width="300" alt="A soft-glowing Astro star—shipping energy." data-astro-cid-llkgxla6> <p>I finally shipped this blog after a few days of wrestling with both technical details and some “what even is the right approach?” moments. Perseverance helped—and the tutorial’s design didn’t hurt either (cheers to the Astro team’s guide). I learned a lot, and I’m writing it down so future-me doesn’t forget.</p>
+<h2 id="what-i-changed-and-why">What I changed (and why)</h2>
+<ul>
+<li><strong>Custom routes.</strong> I personalized the route setup to fit how I want URLs to look. It’s a small thing that makes the site feel mine.</li>
+<li><strong>GitHub Pages via <code>docs/</code>.</strong> I’m publishing from the <code>docs</code> folder instead of the default branch deploys. That meant tweaking the build flow so the final static output lands in <code>docs/</code> and Pages serves from there. Feels neat and very portable.</li>
+<li><strong>Not Netlify this time.</strong> The tutorial suggests Netlify as an option; I went with GitHub Pages to keep everything in one place.</li>
+</ul>
+<details>
+<summary>Build flow I used</summary>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> ci</span></span>
+<span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> build</span><span style="color:#6A737D">          # generates /dist</span></span>
+<span class="line"><span style="color:#B392F0">rm</span><span style="color:#79B8FF"> -rf</span><span style="color:#9ECBFF"> docs</span></span>
+<span class="line"><span style="color:#B392F0">cp</span><span style="color:#79B8FF"> -R</span><span style="color:#9ECBFF"> dist</span><span style="color:#9ECBFF"> docs</span><span style="color:#6A737D">        # Pages serves from /docs</span></span></code></pre>
+</details>
+<h2 id="pages--collections-and-the-file-that-trolled-me">Pages → Collections (and the file that trolled me)</h2>
+<p>I refactored from “posts as pages” to <strong>content collections</strong>. Big win: a schema that catches mistakes early and nicer APIs to fetch content.</p>
+<p>But the gremlin: a filename. I had <code>[...slugs].astro</code> when the route expected <code>slug</code>—or vice-versa. One single letter cost hours. It happens. Lesson re-learned:</p>
+<ul>
+<li>The <strong>param name</strong> in <code>getStaticPaths()</code> must <strong>match</strong> the dynamic route filename.</li>
+<li>When in doubt, log the <code>params</code> you return and sanity-check your URLs quickly.</li>
+</ul>
+<h2 id="debugging-tip-verify-your-route-parameter-key">Debugging tip: verify your route parameter key</h2>
+<p>When generating pages from the collection, log the params you’re returning. A quick <code>console.table</code> makes it obvious if your key name doesn’t match the filename (e.g., <code>[...slug].astro</code> vs <code>params: { slugs: … }</code>).</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> getStaticPaths</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> posts</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> getCollection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'blog'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> paths</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> posts.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">p</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> ({</span></span>
+<span class="line"><span style="color:#E1E4E8">    params: { slug: p.slug }, </span><span style="color:#6A737D">// must match `[...slug].astro`</span></span>
+<span class="line"><span style="color:#E1E4E8">    props: { post: p },</span></span>
+<span class="line"><span style="color:#E1E4E8">  }));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  // Fast visual check: you should see rows like `{ slug: 'my-post' }`</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">table</span><span style="color:#E1E4E8">(paths.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">p</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> p.params));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  // Optional: assert-like guard during dev</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (paths.</span><span style="color:#B392F0">some</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">p</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#F97583"> !</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'slug'</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> p.params))) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">warn</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'[routes] Missing "slug" key in params; check your route filename or params object.'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> paths;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="importmetaglob-pages-vs-getcollection-collections"><code>import.meta.glob</code> (pages) vs <code>getCollection()</code> (collections)</h2>
+<p>There are two common models for posts in Astro, and they shape how you fetch data and generate URLs.</p>
+<h3 id="a-pages-model-srcpages-using-importmetaglob">A) Pages model (<code>src/pages/...</code>) using <code>import.meta.glob</code></h3>
+<ul>
+<li><strong>Where files live:</strong> <code>src/pages/posts/**/*.md</code></li>
+<li><strong>Routing:</strong> Each <code>.md</code> under <code>src/pages</code> <strong>becomes a page automatically</strong> (file-based routing).</li>
+<li><strong>Listing posts:</strong> You glob the markdown files and each module exposes <code>frontmatter</code> and a generated <code>url</code>.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#6A737D">// Example inside a page component</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> modules</span><span style="color:#F97583"> =</span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">meta</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">glob</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'../pages/posts/**/*.md'</span><span style="color:#E1E4E8">, { eager: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> posts</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> Object.</span><span style="color:#B392F0">values</span><span style="color:#E1E4E8">(modules).</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">mod</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> any</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> ({</span></span>
+<span class="line"><span style="color:#E1E4E8">  title: mod.frontmatter.title,</span></span>
+<span class="line"><span style="color:#E1E4E8">  url: mod.url,                 </span><span style="color:#6A737D">// provided for page modules</span></span>
+<span class="line"><span style="color:#E1E4E8">  date: mod.frontmatter.pubDate</span></span>
+<span class="line"><span style="color:#E1E4E8">}));</span></span></code></pre>
+<p><strong>Pros:</strong> Simple, automatic URLs.<br>
+<strong>Cons:</strong> Less structure/validation across posts; content lives in <code>src/pages</code>, which couples content and routing.</p>
+<h3 id="b-collections-model-srcblog--astrocontent-using-getcollection">B) Collections model (<code>src/blog</code> + <code>astro:content</code>) using <code>getCollection()</code></h3>
+<ul>
+<li><strong>Where files live:</strong> e.g., <code>src/blog/**/*.md</code> (outside <code>src/pages</code>).</li>
+<li><strong>Routing:</strong> Markdown files do <strong>not</strong> become pages automatically. You define a dynamic route (e.g., <code>src/pages/posts/[...slug].astro</code>) and render collection entries.</li>
+<li><strong>Listing posts:</strong> Fetch entries with <code>getCollection('blog')</code> and build the href from your chosen route pattern.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { getCollection } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'astro:content'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> entries</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> getCollection</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'blog'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> links</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> entries.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">p</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> ({</span></span>
+<span class="line"><span style="color:#E1E4E8">  title: p.data.title,</span></span>
+<span class="line"><span style="color:#E1E4E8">  href: </span><span style="color:#9ECBFF">`${</span><span style="color:#F97583">import</span><span style="color:#9ECBFF">.</span><span style="color:#79B8FF">meta</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">env</span><span style="color:#9ECBFF">.</span><span style="color:#79B8FF">BASE_URL</span><span style="color:#9ECBFF">}posts/${</span><span style="color:#E1E4E8">p</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">slug</span><span style="color:#9ECBFF">}/`</span><span style="color:#6A737D"> // matches your dynamic route</span></span>
+<span class="line"><span style="color:#E1E4E8">}));</span></span></code></pre>
+<p><strong>Pros:</strong> Validated frontmatter (schema), better editor tooling, and cleaner separation of content from routing.<br>
+<strong>Cons:</strong> You must create the route file and construct URLs yourself (easy to mix up param names—see debug tip above).</p>
+<h2 id="whats-next">What’s next?</h2>
+<ul>
+<li><strong>Refresh the styling</strong> with design concepts I’m currently studying.</li>
+<li><strong>Add a Projects section</strong> so this doubles as a portfolio.</li>
+<li>Keep building—see where this little site wants to go.</li>
+</ul>  <footer data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>Learn more about my projects on:
+</p><ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte> <a href="https://www.GitHub.com/dan1294x" data-astro-cid-yxtifmrq>GitHub</a> </li><li data-astro-cid-sz7xmlte> <a href="https://www.Twitter.com/dan1294x" data-astro-cid-yxtifmrq>Twitter</a> </li><li data-astro-cid-sz7xmlte> <a href="https://www.LinkedIn.com/dan1294x" data-astro-cid-yxtifmrq>LinkedIn</a> </li> </ul> </footer> <script type="module">document.querySelector(".hamburger")?.addEventListener("click",()=>{document.querySelector(".nav-links")?.classList.toggle("expanded"),console.log("dingdong")});</script> </body> </html>
