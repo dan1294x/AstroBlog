@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {getCollection} from 'astro:content';
+const pageTitle = "Tags Index";
+
+const allPosts = await getCollection('blog');
+const uniqueTags = [...new Set(allPosts.map((post:any) => post.frontmatter.tags).flat())];
+---
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+    <p>Welcome to the tags page. Here you can find a list of all tags used in the blog posts.</p>
+        <ul>
+        {uniqueTags.map((tag:any) => 
+            <div class="tags">
+                <p class="tag"><a href={`${import.meta.env.BASE_URL}tags/${tag}`}>{tag}</p></a>
+            </div>
+        )}
+        </ul>
+    <p>Click on a tag to see all posts associated with it.</p>
+</BaseLayout>
