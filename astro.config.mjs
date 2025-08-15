@@ -5,4 +5,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://dan1294x.github.io',
   base: '/AstroBlog/',
+  outDir: 'docs',
 });
