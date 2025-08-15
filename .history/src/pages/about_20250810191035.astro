@@ -6,17 +6,17 @@ const pageTitle = "About Me"
 
 // Here is some information about me, my skills, and my progress learning Astro.
 const identity = {
-  firstName: "Daniel Ruiz",
-  alias: "elCoco",
-  occupation: "customer support by day and web design by night (running joke)",
-  hobbies: ["music (guitar, jazz)", "coding"],
+  firstName: "Sarah",
+  country: "Canada",
+  occupation: "Technical Writer",
+  hobbies: ["photography", "birdwatching", "baseball"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro"];
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 
 // Progress indicators
 const happy = true;
-const finished = true; // still cooking!
+const finished = false;
 const goal = 3;
 
 // This will be used in the CSS class for the skills list items.
@@ -35,15 +35,16 @@ const textCase = "uppercase";
                 font-weight: var(--fontWeight);
                 text-transform: var(--textCase);
             }
+ 
     </style>
-
-    <h2>...and this little site!</h2>
-    <p>I'm tinkering with this site as I go — Astro is in the mix, but the point is to ship small, useful things.</p>
+    <h2>... and my new Astro site!</h2>
+    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
 
     <p>Here are a few facts about me:</p>
     <ul>
-        <li>My name is {identity.firstName} (a.k.a. {identity.alias}).</li>
-        <li>I do {identity.occupation}.</li>
+        <li>My name is {identity.firstName}.</li>
+        <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
         {identity.hobbies.length >= 2 ?
             <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li> :
             <li>My hobby is {identity.hobbies[0]}</li>
@@ -55,9 +56,9 @@ const textCase = "uppercase";
         {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
-    {happy && <p>I am happy to be learning and building.</p>}
+    {happy && <p>I am happy to be learning Astro!</p>}
     
     {goal === 3 ? <p>My goal is to finish in {goal} days.</p> : <p>My goal is not {goal} days.</p>}
     
-    {finished && <p>Update: Astro tutorial finished :)</p>}
+    {finished && <p>I finished this tutorial!</p>}
 </BaseLayout>
